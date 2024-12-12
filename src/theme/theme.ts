@@ -1,6 +1,6 @@
 import { DefaultTheme } from 'styled-components'
 
-interface Breakpoints {
+export interface Breakpoints {
   mobile: string
   tablet: string
   laptop: string
@@ -22,6 +22,12 @@ export const theme: DefaultTheme = {
     desktop: `(min-width: ${breakpoints.desktop})`,
   },
 
+  radius: {
+    small: '0.25rem',
+    medium: '0.5rem',
+    large: '1rem',
+  },
+
   palette: {
     common: {
       background: '#f7f7f7',
@@ -31,7 +37,7 @@ export const theme: DefaultTheme = {
     },
 
     primary: {
-      main: '#003a46',
+      main: 'rgb(2, 61, 75)',
       text: '#fff',
     },
   },

@@ -3,13 +3,9 @@ import {
   createRoutesFromElements,
   Route,
 } from 'react-router-dom'
-import { Layout } from 'Layout'
+import { Layout } from 'components'
 import { Detail, Summary } from 'pages'
-
-enum Routes {
-  SUMMARY = '/',
-  DASHBOARD = '/dashboard',
-}
+import { Routes } from './routes.types'
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
