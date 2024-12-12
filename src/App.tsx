@@ -1,9 +1,7 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { ThemeProvider } from 'styled-components'
 import { theme } from './theme'
-
-const queryClient = new QueryClient()
+import { queryClient, QueryClientProvider } from './client'
 
 const App = () => {
   return (
