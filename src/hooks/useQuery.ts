@@ -2,7 +2,7 @@ import {
   UseQueryOptions,
   DefinedInitialDataOptions,
   useQuery as useReactQuery,
-} from '../client'
+} from 'client'
 
 /*
  * This hook is a wrapper around useQuery from @tanstack/react-query
