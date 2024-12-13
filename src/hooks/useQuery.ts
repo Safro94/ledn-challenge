@@ -1,8 +1,4 @@
-import {
-  UseQueryOptions,
-  DefinedInitialDataOptions,
-  useQuery as useReactQuery,
-} from 'client'
+import { UseQueryOptions, useQuery as useReactQuery } from 'client'
 
 /*
  * This hook is a wrapper around useQuery from @tanstack/react-query
@@ -11,8 +7,6 @@ import {
  * we want to replace RQ with another library in the future so we only have
  * to change the hook and not the rest of the code.
  * */
-export const useQuery = <T extends UseQueryOptions>(
-  options: DefinedInitialDataOptions<T>
-) => {
+export const useQuery = <T>(options: UseQueryOptions<T>) => {
   return useReactQuery(options)
 }

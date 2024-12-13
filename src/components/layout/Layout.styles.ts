@@ -14,4 +14,5 @@ export const LayoutMainContainer = styled.main`
   padding: 1rem;
   overflow-y: auto;
   border-top-left-radius: ${({ theme }) => theme.radius.large};
+  max-height: calc(100vh - 3rem);
 `

@@ -1,3 +1,9 @@
+import { PlanetsContainer } from 'containers'
+
 export const Summary = () => {
-  return <div>Summary</div>
+  return (
+    <div>
+      <PlanetsContainer />
+    </div>
+  )
 }

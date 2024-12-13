@@ -1,8 +1,5 @@
 import { AxiosRequestConfig, AxiosResponse } from 'axios'
 import { axios } from './axios'
-import { ExchangeRate, Planet, Transaction, User } from '../server'
-
-type Response = ExchangeRate | Planet | Transaction | User
 
 /**
  * Axios wrapper function to make requests to the API.
@@ -11,11 +8,11 @@ type Response = ExchangeRate | Planet | Transaction | User
  * @returns Axios response
  * @throws Error if the request fails
  */
-export const fetcher = async (
+export const fetcher = async <T>(
   config: AxiosRequestConfig
-): Promise<AxiosResponse<Response>> => {
+): Promise<AxiosResponse<T>> => {
   try {
-    const res: AxiosResponse<Response> = await axios({
+    const res: AxiosResponse<T> = await axios<T>({
       ...config,
     })
     return res
