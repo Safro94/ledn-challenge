@@ -1,2 +1,2 @@
-export { Detail } from './Detail'
-export { Summary } from './Summary'
+export { Detail } from './detail'
+export { Summary } from './summary'

@@ -9,12 +9,6 @@ export const CardContainer = styled.div`
   padding: 1rem;
   color: ${({ theme }) => theme.palette.primary.main};
   transition: background-color 0.3s ease-in-out;
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.palette.primary.main};
-    color: ${({ theme }) => theme.palette.primary.text};
-  }
 `
 
 export const CardImage = styled.img`

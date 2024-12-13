@@ -1,5 +1,6 @@
 import { Card } from 'components/card'
 import {
+  PlanetsContainerCard,
   PlanetsContainerCardContent,
   PlanetsContainerPlanetInfo,
   PlanetsContainerSearchContainer,
@@ -80,7 +81,7 @@ export const PlanetsContainer = () => {
 
         {!isLoading &&
           filteredPlanetsByName?.map((planet) => (
-            <Card
+            <PlanetsContainerCard
               key={planet.id}
               onClick={() => navigate(`/${Routes.DETAIL}/${planet.id}`)}
             >
@@ -101,7 +102,7 @@ export const PlanetsContainer = () => {
                   <PlanetInfo title='Terrain' data={planet.terrain} />
                 </PlanetsContainerCardContent>
               </Card.Content>
-            </Card>
+            </PlanetsContainerCard>
           ))}
       </PlanetsContainerWrapper>
     </div>

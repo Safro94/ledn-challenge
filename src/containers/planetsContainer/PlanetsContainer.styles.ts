@@ -1,3 +1,4 @@
+import { CardContainer } from 'components/card/Card.styles'
 import styled from 'styled-components'
 
 export const PlanetsContainerWrapper = styled.div`
@@ -47,4 +48,15 @@ export const PlanetsContainerSearchInput = styled.input`
   padding: 0.5rem;
   border-radius: ${({ theme }) => theme.radius.small};
   border: 1px solid ${({ theme }) => theme.palette.primary.main};
+`
+
+export const PlanetsContainerCard = styled(CardContainer)`
+  cursor: pointer;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.palette.primary.main};
+    color: ${({ theme }) => theme.palette.primary.text};
+  }
 `
