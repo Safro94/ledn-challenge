@@ -1,10 +1,9 @@
-import styled, { DefaultTheme } from 'styled-components'
+import styled from 'styled-components'
 
 export type TransactionStatusType = 'inProgress' | 'completed' | 'blocked'
 
 export const TransactionContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
   gap: 0.5rem;
   padding: 1rem 0.5rem;
   justify-items: center;
@@ -16,6 +15,10 @@ export const TransactionContainer = styled.div`
   &:hover {
     background-color: ${({ theme }) => theme.palette.primary.main};
     color: ${({ theme }) => theme.palette.primary.text};
+  }
+
+  @media (${({ theme }) => theme.breakpoints.tablet}) {
+    grid-template-columns: repeat(4, 1fr);
   }
 `
 

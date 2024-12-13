@@ -8,5 +8,5 @@ import { UseQueryOptions, useQuery as useReactQuery } from 'client'
  * to change the hook and not the rest of the code.
  * */
 export const useQuery = <T>(options: UseQueryOptions<T>) => {
-  return useReactQuery(options)
+  return useReactQuery<T>(options)
 }

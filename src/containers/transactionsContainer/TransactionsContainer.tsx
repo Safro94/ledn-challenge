@@ -2,6 +2,7 @@ import { useTransactions } from './useTransactions'
 import { Skeleton } from 'components/skeleton'
 import {
   TransactionsContainerCardContent,
+  TransactionsContainerFilterContainer,
   TransactionsContainerSkeleton,
   TransactionsContainerTitleContainer,
 } from './TransactionsContainer.styles'
@@ -10,9 +11,13 @@ import { Transaction } from 'components/transaction'
 import { Dropdown } from 'components/dropdown'
 import { ExchangeRateType } from 'containers/exchangeRateContainer'
 import { useMemo, useState } from 'react'
+import { Button, ButtonTypes } from 'components/button'
+import { useBlockTransactionsMutation } from './useBlockTransactionsMutation'
 
 export const TransactionsContainer = () => {
   const { data, isLoading, isFetched } = useTransactions()
+  const { mutate: blockTransactions } = useBlockTransactionsMutation()
+
   const [selectedCurrency, setSelectedCurrency] = useState<
     ExchangeRateType | undefined
   >(undefined)
@@ -35,17 +40,34 @@ export const TransactionsContainer = () => {
         <TransactionsContainerTitleContainer>
           <h4>List of transactions</h4>
 
-          <Dropdown<ExchangeRateType | undefined>
-            onClick={(item) => handleCurrencyChange(item)}
-            buttonLabel={selectedCurrency ?? 'Select currency'}
-            items={[
-              { id: undefined, text: 'ALL' },
-              ...Object.values(ExchangeRateType).map((value) => ({
-                id: value,
-                text: value,
-              })),
-            ]}
-          />
+          <TransactionsContainerFilterContainer>
+            <Button
+              variant={ButtonTypes.SECONDARY}
+              onClick={() => {
+                if (!data?.transactions) return
+
+                blockTransactions(
+                  data?.transactions.filter(
+                    (transaction) => transaction.status === 'inProgress'
+                  )
+                )
+              }}
+            >
+              Block in progress
+            </Button>
+
+            <Dropdown<ExchangeRateType | undefined>
+              onClick={(item) => handleCurrencyChange(item)}
+              buttonLabel={selectedCurrency ?? 'Select currency'}
+              items={[
+                { id: undefined, text: 'ALL' },
+                ...Object.values(ExchangeRateType).map((value) => ({
+                  id: value,
+                  text: value,
+                })),
+              ]}
+            />
+          </TransactionsContainerFilterContainer>
         </TransactionsContainerTitleContainer>
 
         {isLoading &&

@@ -15,3 +15,9 @@ export const TransactionsContainerTitleContainer = styled.div`
   justify-content: space-between;
   align-items: center;
 `
+
+export const TransactionsContainerFilterContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`

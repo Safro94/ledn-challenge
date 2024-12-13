@@ -14,6 +14,10 @@ export const fetcher = async <T>(
   try {
     const res: AxiosResponse<T> = await axios<T>({
       ...config,
+      headers: {
+        ...config.headers,
+        'Content-Type': 'application/json',
+      },
     })
     return res
   } catch (error) {
