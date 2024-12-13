@@ -1,8 +1,20 @@
+import { Card } from 'components/card'
 import {
+  PlanetsContainerCardContent,
+  PlanetsContainerPlanetInfo,
   PlanetsContainerTitle,
   PlanetsContainerWrapper,
 } from './PlanetsContainer.styles'
 import { usePlanets } from './usePlanets'
+
+const PlanetInfo = ({ title, data }: { title: string; data: string }) => {
+  return (
+    <PlanetsContainerPlanetInfo>
+      <h4>{title}</h4>
+      <p>{data}</p>
+    </PlanetsContainerPlanetInfo>
+  )
+}
 
 export const PlanetsContainer = () => {
   const { data, isLoading } = usePlanets()
@@ -12,17 +24,20 @@ export const PlanetsContainer = () => {
     return <div>Loading...</div>
   }
 
+  console.log(data?.planets)
+
   return (
     <div>
       <PlanetsContainerTitle>Planets</PlanetsContainerTitle>
 
       <PlanetsContainerWrapper>
-        {/* TODO: create cards */}
         {data?.planets?.map((planet) => (
-          <div key={planet.id}>
-            <h2>{planet.name}</h2>
-            <p>{planet.diameter}</p>
-          </div>
+          <Card key={planet.id} title={planet.name}>
+            <PlanetsContainerCardContent>
+              <PlanetInfo title='Climate' data={planet.climate} />
+              <PlanetInfo title='Terrain' data={planet.terrain} />
+            </PlanetsContainerCardContent>
+          </Card>
         ))}
       </PlanetsContainerWrapper>
     </div>
