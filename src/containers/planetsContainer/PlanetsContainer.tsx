@@ -11,6 +11,8 @@ import { usePlanets } from './usePlanets'
 import { useMemo, useState } from 'react'
 import { useDebouncedValue } from '@mantine/hooks'
 import { Skeleton } from 'components/skeleton'
+import { useNavigate } from 'react-router-dom'
+import { Routes } from 'routes/routes.types'
 
 const PlanetInfo = ({
   title,
@@ -28,8 +30,10 @@ const PlanetInfo = ({
 }
 
 export const PlanetsContainer = () => {
-  const { data, isLoading } = usePlanets()
   const [searchValue, setSearchValue] = useState('')
+
+  const navigate = useNavigate()
+  const { data, isLoading } = usePlanets()
   const [debouncedValue] = useDebouncedValue(searchValue, 200)
 
   const filteredPlanetsByName = useMemo(
@@ -76,7 +80,10 @@ export const PlanetsContainer = () => {
 
         {!isLoading &&
           filteredPlanetsByName?.map((planet) => (
-            <Card key={planet.id}>
+            <Card
+              key={planet.id}
+              onClick={() => navigate(`/${Routes.DETAIL}/${planet.id}`)}
+            >
               {/* random image, should be replaced with a real planet image */}
               <Card.Image src='https://picsum.photos/200' />
 
