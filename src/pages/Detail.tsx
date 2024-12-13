@@ -1,3 +1,9 @@
+import { ExchangeRateContainer } from 'containers'
+
 export const Detail = () => {
-  return <div>Detail</div>
+  return (
+    <div>
+      <ExchangeRateContainer />
+    </div>
+  )
 }

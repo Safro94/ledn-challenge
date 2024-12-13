@@ -28,6 +28,6 @@ export const CardTitle = styled.h2`
   text-align: center;
 `
 
-export const CardSubtitle = styled.h3`
+export const CardSubtitle = styled.h4`
   text-align: center;
 `

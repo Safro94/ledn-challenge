@@ -1,5 +1,10 @@
 import { FC, ImgHTMLAttributes, PropsWithChildren } from 'react'
-import { CardContainer, CardImage, CardTitle } from './Card.styles'
+import {
+  CardContainer,
+  CardImage,
+  CardSubtitle,
+  CardTitle,
+} from './Card.styles'
 
 type CardProps = FC<PropsWithChildren & { onClick?: () => void }> & {
   Image: FC<ImgHTMLAttributes<HTMLImageElement>>
@@ -20,7 +25,7 @@ const Title: FC<PropsWithChildren> = ({ children }) => {
 }
 
 const Subtitle: FC<PropsWithChildren> = ({ children }) => {
-  return <h3>{children}</h3>
+  return <CardSubtitle>{children}</CardSubtitle>
 }
 
 const Content: FC<PropsWithChildren> = ({ children }) => {
