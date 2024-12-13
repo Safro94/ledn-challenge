@@ -1,4 +1,3 @@
-import { Transaction } from 'server'
 import { useQuery } from 'hooks/useQuery'
 import { useParams } from 'react-router-dom'
 import { transactionsKeys, usersKeys } from './TransactionsContainer.keys'

@@ -48,3 +48,13 @@ export const TransactionStatus = styled.div<{ variant: TransactionStatusType }>(
     ${variantStyles(variant)};
 `
 )
+
+export const TransactionAmountContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`
+
+export const TransactionCurrency = styled.span`
+  font-weight: bold;
+`
