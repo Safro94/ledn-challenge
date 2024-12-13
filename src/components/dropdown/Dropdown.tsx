@@ -7,7 +7,7 @@ import {
   DropdownToggleButton,
   UpArrow,
 } from './Dropdown.styles'
-import { D } from '@tanstack/react-query-devtools/build/legacy/ReactQueryDevtools-Cn7cKi7o'
+import { useClickOutside } from '@mantine/hooks'
 
 interface Item {
   id: string
@@ -21,28 +21,8 @@ interface Props {
 }
 
 export const Dropdown: FC<Props> = ({ buttonLabel, items }) => {
-  const menuRef = useRef<HTMLDivElement | null>(null)
   const [open, setOpen] = useState(false)
-
-  useEffect(() => {
-    // close dropdown on outside click
-    const handler = (event: MouseEvent | TouchEvent) => {
-      if (
-        open &&
-        menuRef.current &&
-        !menuRef.current.contains(event.target as Node)
-      ) {
-        setOpen(false)
-      }
-    }
-    document.addEventListener('mousedown', handler)
-    document.addEventListener('touchstart', handler)
-
-    return () => {
-      document.removeEventListener('mousedown', handler)
-      document.removeEventListener('touchstart', handler)
-    }
-  }, [open])
+  const menuRef = useClickOutside(() => setOpen(false))
 
   return (
     <DropdownContainer ref={menuRef}>
