@@ -9,18 +9,18 @@ import {
 } from './Dropdown.styles'
 import { useClickOutside } from '@mantine/hooks'
 
-interface Item {
-  id: string
+interface Item<T> {
+  id: T
   text: string
-  onItemClick?: (item: string) => void
 }
 
-interface Props {
+interface Props<T> {
   buttonLabel: string
-  items: Item[]
+  items: Item<T>[]
+  onClick: (id: T) => void
 }
 
-export const Dropdown: FC<Props> = ({ buttonLabel, items }) => {
+export const Dropdown = <T,>({ buttonLabel, items, onClick }: Props<T>) => {
   const [open, setOpen] = useState(false)
   const menuRef = useClickOutside(() => setOpen(false))
 
@@ -45,10 +45,10 @@ export const Dropdown: FC<Props> = ({ buttonLabel, items }) => {
             {items.map((item) => (
               <DropdownMenuItem
                 role='menuitem'
-                key={item.id}
+                key={String(item.id)}
                 id={`dropdown-item-${item.id}`}
                 onClick={() => {
-                  item.onItemClick?.(item.id)
+                  onClick(item.id)
                   setOpen(false)
                 }}
               >

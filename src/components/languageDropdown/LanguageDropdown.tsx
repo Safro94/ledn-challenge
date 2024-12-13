@@ -9,22 +9,18 @@ enum Languages {
 export const LanguageDropdown = () => {
   const { i18n } = useTranslation()
 
-  const changeLanguageHandler = (lang: string) => {
+  const changeLanguageHandler = (lang: Languages) => {
     i18n.changeLanguage(lang)
   }
 
-  const items = [
-    {
-      id: Languages.EN,
-      text: Languages.EN.toUpperCase(),
-      onItemClick: changeLanguageHandler,
-    },
-    {
-      id: Languages.ES,
-      text: Languages.ES.toUpperCase(),
-      onItemClick: changeLanguageHandler,
-    },
-  ]
-
-  return <Dropdown items={items} buttonLabel={i18n.language.toUpperCase()} />
+  return (
+    <Dropdown<Languages>
+      onClick={changeLanguageHandler}
+      items={Object.values(Languages).map((value) => ({
+        id: value,
+        text: value.toUpperCase(),
+      }))}
+      buttonLabel={i18n.language.toUpperCase()}
+    />
+  )
 }

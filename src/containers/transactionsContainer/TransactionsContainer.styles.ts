@@ -9,3 +9,9 @@ export const TransactionsContainerCardContent = styled.div`
 export const TransactionsContainerSkeleton = styled.div`
   border: 1px solid ${({ theme }) => theme.palette.primary.main};
 `
+
+export const TransactionsContainerTitleContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
