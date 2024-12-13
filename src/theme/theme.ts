@@ -28,6 +28,12 @@ export const theme: DefaultTheme = {
     large: '1rem',
   },
 
+  fontSize: {
+    small: '0.75rem',
+    medium: '1rem',
+    large: '1.25rem',
+  },
+
   palette: {
     common: {
       background: '#f7f7f7',

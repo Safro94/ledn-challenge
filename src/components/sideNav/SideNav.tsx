@@ -7,16 +7,19 @@ import {
   SideNavLogoContainer,
   SideNavList,
 } from './SideNav.styles'
-
-const LINKS = [
-  {
-    label: 'Summary',
-    to: Routes.SUMMARY,
-    icon: <SideNavSummaryIcon />,
-  },
-]
+import { useTranslation } from 'react-i18next'
 
 export const SideNav = () => {
+  const { t } = useTranslation()
+
+  const links = [
+    {
+      label: t('sideNav.summary'),
+      to: Routes.SUMMARY,
+      icon: <SideNavSummaryIcon />,
+    },
+  ]
+
   return (
     <SideNavContainer>
       <SideNavLogoContainer>
@@ -24,7 +27,7 @@ export const SideNav = () => {
       </SideNavLogoContainer>
 
       <SideNavList>
-        {LINKS.map((link) => (
+        {links.map((link) => (
           <li key={link.label}>
             <SideNavListOption to={link.to}>
               {link.icon} {link.label}

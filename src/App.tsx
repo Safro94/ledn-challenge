@@ -6,6 +6,7 @@ import { queryClient, QueryClientProvider } from 'client'
 import { router } from 'routes'
 
 const App = () => {
+  //Add error boundary
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={theme}>

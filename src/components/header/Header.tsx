@@ -1,3 +1,4 @@
+import { LanguageDropdown } from 'components/languageDropdown'
 import {
   HeaderAvatar,
   HeaderAvatarIcon,
@@ -10,6 +11,8 @@ export const Header = () => {
       <HeaderAvatar>
         <HeaderAvatarIcon />
       </HeaderAvatar>
+
+      <LanguageDropdown />
     </HeaderContainer>
   )
 }

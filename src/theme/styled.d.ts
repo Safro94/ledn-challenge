@@ -10,6 +10,11 @@ declare module 'styled-components' {
       medium: string
       large: string
     }
+    fontSize: {
+      small: string
+      medium: string
+      large: string
+    }
     palette: {
       common: {
         background: string
