@@ -3,7 +3,6 @@ import styled from 'styled-components'
 export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 1rem;
   border: 1px solid ${({ theme }) => theme.palette.primary.main};
   border-radius: ${({ theme }) => theme.radius.medium};
@@ -22,11 +21,13 @@ export const CardImage = styled.img`
   width: 6rem;
   height: 6rem;
   border-radius: 50%;
+  align-self: center;
 `
 
-export const CardContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+export const CardTitle = styled.h2`
+  text-align: center;
+`
+
+export const CardSubtitle = styled.h3`
+  text-align: center;
 `

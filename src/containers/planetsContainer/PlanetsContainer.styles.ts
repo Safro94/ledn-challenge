@@ -8,6 +8,11 @@ export const PlanetsContainerWrapper = styled.div`
 
 export const PlanetsContainerTitle = styled.h1`
   margin-bottom: 1rem;
+  text-align: center;
+
+  @media (${({ theme }) => theme.breakpoints.tablet}) {
+    text-align: left;
+  }
 `
 
 export const PlanetsContainerCardContent = styled.div`
@@ -17,17 +22,25 @@ export const PlanetsContainerCardContent = styled.div`
 
 export const PlanetsContainerPlanetInfo = styled.div`
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  align-items: center;
-  text-align: center;
+  justify-content: space-between;
+  gap: 0.2rem;
+
+  @media (${({ theme }) => theme.breakpoints.tablet}) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
 `
 
 export const PlanetsContainerSearchContainer = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 1rem;
+
+  @media (${({ theme }) => theme.breakpoints.tablet}) {
+    flex-direction: row;
+  }
 `
 
 export const PlanetsContainerSearchInput = styled.input`
