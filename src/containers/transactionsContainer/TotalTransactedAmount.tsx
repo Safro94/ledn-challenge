@@ -1,4 +1,4 @@
-import { ExchangeRateType } from 'containers/exchangeRateContainer'
+import { ExchangeRateType } from 'containers/exchangeRateContainer/ExchangeRateContainer'
 import { FC, Fragment } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Transaction } from 'server'
@@ -8,7 +8,7 @@ import {
   TotalTransactedAmountCurrency,
   TransactionsContainerTotaContainer,
 } from './TransactionsContainer.styles'
-import { useExchangeRateStore } from 'containers/exchangeRateContainer/exchangeRateStore'
+import { useExchangeRateStore } from 'containers/exchangeRateContainer'
 import { convertToGCS, convertToICS } from 'utils/converter'
 import { Skeleton } from 'components/skeleton'
 
@@ -101,7 +101,7 @@ export const TotalTransactedAmount: FC<Props> = ({
               </h6>
 
               <TotalTransactedAmountContainer>
-                {amount.toFixed(2)}
+                <span>{amount.toFixed(2)}</span>
                 <TotalTransactedAmountCurrency>
                   {currency}
                 </TotalTransactedAmountCurrency>
@@ -124,7 +124,7 @@ export const TotalTransactedAmount: FC<Props> = ({
             },
           ].map(({ amount, currency }) => (
             <TotalTransactedAmountContainer key={`${amount}-${currency}`}>
-              {amount.toFixed(2)}
+              <span>{amount.toFixed(2)}</span>
 
               <TotalTransactedAmountCurrency>
                 {currency}

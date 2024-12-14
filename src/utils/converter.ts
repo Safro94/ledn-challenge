@@ -3,5 +3,6 @@ export const convertToICS = (amount: number, exchangeRate: number) => {
 }
 
 export const convertToGCS = (amount: number, exchangeRate: number) => {
+  if (!amount) return '0.00'
   return (amount / exchangeRate).toFixed(2)
 }
