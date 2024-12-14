@@ -8,4 +8,5 @@ export const EmptyStateContainer = styled.div`
   background-color: ${({ theme }) => theme.palette.primary.main};
   color: ${({ theme }) => theme.palette.primary.text};
   border-radius: ${({ theme }) => theme.radius.medium};
+  opacity: 0.85;
 `

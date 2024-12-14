@@ -1,4 +1,4 @@
-import { CardContainer } from 'components/card/Card.styles'
+import { Card } from 'components/card'
 import styled from 'styled-components'
 
 export const TransactionsContainerWrapper = styled.div`
@@ -54,6 +54,6 @@ export const TransactionsContainerTotaContainer = styled.div`
   gap: 0.5rem;
 `
 
-export const TotalTransactedAmountCard = styled(CardContainer)`
+export const TotalTransactedAmountCard = styled(Card)`
   gap: 0.5rem;
 `

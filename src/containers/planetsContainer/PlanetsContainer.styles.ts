@@ -1,4 +1,4 @@
-import { CardContainer } from 'components/card/Card.styles'
+import { Card } from 'components/card'
 import { EmptyState } from 'components/emptyState'
 import styled from 'styled-components'
 
@@ -51,7 +51,7 @@ export const PlanetsContainerSearchInput = styled.input`
   border: 1px solid ${({ theme }) => theme.palette.primary.main};
 `
 
-export const PlanetsContainerCard = styled(CardContainer)`
+export const PlanetsContainerCard = styled(Card)`
   cursor: pointer;
   color: ${({ theme }) => theme.palette.primary.main};
 

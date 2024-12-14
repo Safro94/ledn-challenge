@@ -6,14 +6,20 @@ import {
   CardTitle,
 } from './Card.styles'
 
-type CardProps = FC<PropsWithChildren & { onClick?: () => void }> & {
+type CardProps = FC<
+  PropsWithChildren & { onClick?: () => void; className?: string }
+> & {
   Image: FC<ImgHTMLAttributes<HTMLImageElement>>
 } & { Title: FC<PropsWithChildren> } & { Subtitle: FC<PropsWithChildren> } & {
   Content: FC<PropsWithChildren>
 }
 
-const Card: CardProps = ({ children, onClick }) => {
-  return <CardContainer onClick={onClick}>{children}</CardContainer>
+const Card: CardProps = ({ children, onClick, className }) => {
+  return (
+    <CardContainer onClick={onClick} className={className}>
+      {children}
+    </CardContainer>
+  )
 }
 
 const Image: FC<ImgHTMLAttributes<HTMLImageElement>> = (props) => {

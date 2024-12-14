@@ -1,7 +1,7 @@
-import { CardContainer } from 'components/card/Card.styles'
+import { Card } from 'components/card'
 import styled from 'styled-components'
 
-export const ExchangeRateCard = styled(CardContainer)`
+export const ExchangeRateCard = styled(Card)`
   background-color: ${({ theme }) => theme.palette.primary.main};
   color: ${({ theme }) => theme.palette.primary.text};
   align-self: baseline;
