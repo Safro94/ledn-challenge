@@ -22,9 +22,14 @@ export const TransactionsCardSkeletonContainer = styled.div`
 `
 
 export const TransactionsCardTitleContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  gap: 1rem;
+
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 `
 
 export const TransactionsCardFilterContainer = styled.div`
@@ -34,10 +39,14 @@ export const TransactionsCardFilterContainer = styled.div`
 `
 
 export const TotalTransactedAmountContainer = styled.div`
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: bold;
   display: flex;
   gap: 0.5rem;
+
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 1.5rem;
+  }
 `
 
 export const TotalTransactedAmountCurrency = styled.div`

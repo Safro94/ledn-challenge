@@ -3,6 +3,8 @@
     "summary": "Resumen"
   },
   "summary": {
+    "search": "Ingrese un nombre de planeta para buscar",
+    "searchPlaceholder": "Buscar por nombre",
     "noResultsFound": "No se encontraron resultados, por favor cambie su búsqueda"
   },
   "exchangeRate": {

@@ -53,12 +53,12 @@ export const PlanetsContainer = () => {
       <PlanetsContainerTitle>Planets</PlanetsContainerTitle>
 
       <PlanetsContainerSearchContainer>
-        <label htmlFor='search'>Enter a planet name to search</label>
+        <label htmlFor='search'>{t('summary.search')}</label>
 
         <PlanetsContainerSearchInput
           id='search'
           type='text'
-          placeholder='Search by name'
+          placeholder={t('summary.searchPlaceholder')}
           value={searchValue}
           onChange={(e) => setSearchValue(e.currentTarget.value)}
         />

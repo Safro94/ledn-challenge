@@ -3,6 +3,8 @@
     "summary": "Summary"
   },
   "summary": {
+    "search": "Enter a planet name to search",
+    "searchPlaceholder": "Search by planet name",
     "noResultsFound": "No results found, please change your search"
   },
   "exchangeRate": {
