@@ -32,7 +32,10 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "testing-library/no-unnecessary-act": "warn"
+    }
   },
   "browserslist": {
     "production": [

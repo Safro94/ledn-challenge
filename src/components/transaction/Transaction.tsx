@@ -11,6 +11,8 @@ import { ExchangeRateType } from 'containers'
 import { useExchangeRateStore } from 'containers/exchangeRateContainer/exchangeRateStore'
 import { convertToGCS, convertToICS } from 'utils/converter'
 
+export const TRANSACTION_TEST_ID = 'transaction'
+
 export const Transaction: FC<TransactionType> = ({
   amount,
   currency,
@@ -44,7 +46,7 @@ export const Transaction: FC<TransactionType> = ({
   }
 
   return (
-    <TransactionContainer>
+    <TransactionContainer data-testid={TRANSACTION_TEST_ID}>
       <span>{new Date(date).toLocaleDateString()}</span>
 
       {/* casting the value of status and currency below because I cannot change the types on the server based on the challenge's description */}

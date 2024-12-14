@@ -3,7 +3,7 @@ import { server } from './mocks/server'
 
 jest.mock('react-i18next', () => ({
   useTranslation: () => ({
-    t: jest.fn(),
+    t: (key: string) => key,
     i18n: {
       changeLanguage: jest.fn(),
       language: 'en',

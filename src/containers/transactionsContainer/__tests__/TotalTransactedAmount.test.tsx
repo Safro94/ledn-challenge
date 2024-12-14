@@ -4,10 +4,45 @@ import { SKELETON_TEST_ID } from 'components/skeleton'
 import { ExchangeRateType } from 'containers/exchangeRateContainer/ExchangeRateContainer'
 import { convertToGCS, convertToICS } from 'utils/converter'
 
-const MOCKED_RATE = 1.2
 jest.mock('containers/exchangeRateContainer', () => ({
   useExchangeRateStore: () => 1.2,
 }))
+
+const MOCKED_RATE = 1.2
+const MOCKED_TRANSACTIONS = [
+  {
+    amount: 100,
+    currency: 'GCS',
+    date: '2023-01-01',
+    status: 'inProgress',
+    user: 1,
+    id: '1',
+  },
+  {
+    amount: 200,
+    currency: 'GCS',
+    date: '2023-01-01',
+    status: 'inProgress',
+    user: 1,
+    id: '2',
+  },
+  {
+    amount: 150,
+    currency: 'ICS',
+    date: '2023-01-01',
+    status: 'inProgress',
+    user: 1,
+    id: '3',
+  },
+  {
+    amount: 250,
+    currency: 'ICS',
+    date: '2023-01-01',
+    status: 'inProgress',
+    user: 1,
+    id: '4',
+  },
+]
 
 describe('TotalTransactedAmount', () => {
   it('should show the loading skeleton', () => {
@@ -24,48 +59,16 @@ describe('TotalTransactedAmount', () => {
   })
 
   it('should show the converted amount when there are transactions', () => {
-    const transactions = [
-      {
-        amount: 100,
-        currency: 'GCS',
-        date: '2023-01-01',
-        status: 'inProgress',
-        user: 1,
-        id: '1',
-      },
-      {
-        amount: 200,
-        currency: 'GCS',
-        date: '2023-01-01',
-        status: 'inProgress',
-        user: 1,
-        id: '1',
-      },
-      {
-        amount: 150,
-        currency: 'ICS',
-        date: '2023-01-01',
-        status: 'inProgress',
-        user: 1,
-        id: '1',
-      },
-      {
-        amount: 250,
-        currency: 'ICS',
-        date: '2023-01-01',
-        status: 'inProgress',
-        user: 1,
-        id: '1',
-      },
-    ]
-
     render(
-      <TotalTransactedAmount isLoading={false} transactions={transactions} />
+      <TotalTransactedAmount
+        isLoading={false}
+        transactions={MOCKED_TRANSACTIONS}
+      />
     )
 
     expect(screen.queryAllByTestId(SKELETON_TEST_ID)).toHaveLength(0)
 
-    const totals = transactions.reduce<Record<ExchangeRateType, number>>(
+    const totals = MOCKED_TRANSACTIONS.reduce<Record<ExchangeRateType, number>>(
       (acc, transaction) => {
         acc[transaction.currency as ExchangeRateType] += transaction.amount
 
