@@ -3,9 +3,15 @@
     "summary": "Summary"
   },
   "summary": {
+    "title": "Planets",
     "search": "Enter a planet name to search",
     "searchPlaceholder": "Search by planet name",
-    "noResultsFound": "No results found, please change your search"
+    "noResultsFound": "No results found, please change your search",
+    "population": "Population",
+    "residents": "Residents",
+    "diameter": "Diameter",
+    "climate": "Climate",
+    "terrain": "Terrain"
   },
   "exchangeRate": {
     "title": "Exchange rate"

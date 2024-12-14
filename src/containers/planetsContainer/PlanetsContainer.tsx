@@ -50,7 +50,7 @@ export const PlanetsContainer = () => {
 
   return (
     <div>
-      <PlanetsContainerTitle>Planets</PlanetsContainerTitle>
+      <PlanetsContainerTitle>{t('summary.title')}</PlanetsContainerTitle>
 
       <PlanetsContainerSearchContainer>
         <label htmlFor='search'>{t('summary.search')}</label>
@@ -101,14 +101,26 @@ export const PlanetsContainer = () => {
 
               <Card.Content>
                 <PlanetsContainerCardContent>
-                  <PlanetInfo title='Population' data={planet.population} />
                   <PlanetInfo
-                    title='Residents'
+                    title={t('summary.population')}
+                    data={planet.population}
+                  />
+                  <PlanetInfo
+                    title={t('summary.residents')}
                     data={planet.residents.length}
                   />
-                  <PlanetInfo title='Diameter' data={planet.diameter} />
-                  <PlanetInfo title='Climate' data={planet.climate} />
-                  <PlanetInfo title='Terrain' data={planet.terrain} />
+                  <PlanetInfo
+                    title={t('summary.diameter')}
+                    data={planet.diameter}
+                  />
+                  <PlanetInfo
+                    title={t('summary.climate')}
+                    data={planet.climate}
+                  />
+                  <PlanetInfo
+                    title={t('summary.terrain')}
+                    data={planet.terrain}
+                  />
                 </PlanetsContainerCardContent>
               </Card.Content>
             </PlanetsContainerCard>
