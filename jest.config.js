@@ -12,7 +12,6 @@ module.exports = {
     '!**/*.{ts, tsx}.styles.ts',
     '!**/assets/**',
     '!**/routes/**',
-    '!**/theme/**',
     '!**/node_modules/**',
     '!**/__tests__/**',
   ],
