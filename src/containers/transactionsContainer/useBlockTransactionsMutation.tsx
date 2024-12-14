@@ -8,7 +8,7 @@ import { API_ENDPOINTS } from 'utils/constants'
 const blockTransactions = async (transactions: Transaction[]) => {
   return await fetcher<Transaction[]>({
     method: 'PUT',
-    url: `${API_PREFIX}/${API_ENDPOINTS.updateBatch}`,
+    url: `${API_PREFIX}${API_ENDPOINTS.updateBatch}`,
     data: {
       transactions: JSON.stringify(
         transactions.map((transaction) => ({

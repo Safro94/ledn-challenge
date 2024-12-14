@@ -11,7 +11,7 @@ interface Response {
 const getRate = async () => {
   const response = await fetcher<Response>({
     method: 'GET',
-    url: `${API_PREFIX}/${API_ENDPOINTS.exchangeRate}`,
+    url: `${API_PREFIX}${API_ENDPOINTS.exchangeRate}`,
   })
 
   return response.data

@@ -13,7 +13,7 @@ export interface TransactionsResponse {
 const getUsers = async (id: string) => {
   const response = await fetcher<UsersResponse>({
     method: 'GET',
-    url: `${API_PREFIX}/${API_ENDPOINTS.usersByPlanet}/${id}`,
+    url: `${API_PREFIX}${API_ENDPOINTS.usersByPlanet}/${id}`,
   })
 
   return response.data
@@ -22,7 +22,7 @@ const getUsers = async (id: string) => {
 const getTransactionsByUsers = async (ids: string[]) => {
   const response = await fetcher<TransactionsResponse>({
     method: 'GET',
-    url: `${API_PREFIX}/${API_ENDPOINTS.transactionsByUsers}/${JSON.stringify(
+    url: `${API_PREFIX}${API_ENDPOINTS.transactionsByUsers}/${JSON.stringify(
       ids
     )}`,
   })

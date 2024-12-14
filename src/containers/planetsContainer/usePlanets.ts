@@ -11,7 +11,7 @@ interface Response {
 const getPlanets = async () => {
   const response = await fetcher<Response>({
     method: 'GET',
-    url: `${API_PREFIX}/${API_ENDPOINTS.planets}`,
+    url: `${API_PREFIX}${API_ENDPOINTS.planets}`,
   })
 
   return response.data
