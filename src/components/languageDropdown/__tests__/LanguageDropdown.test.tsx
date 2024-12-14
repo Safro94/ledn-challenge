@@ -2,10 +2,9 @@ import { LanguageDropdown } from '../LanguageDropdown'
 import { render, screen, waitFor } from 'utils/testUtils'
 import userEvent from '@testing-library/user-event'
 
-export const DROPDOWN_CONTAINER_TEST_ID = 'dropdown-container'
-
 const mockChangeLanguage = jest.fn()
 jest.mock('react-i18next', () => ({
+  ...jest.requireActual('react-i18next'),
   useTranslation: () => ({
     t: jest.fn(),
     i18n: {

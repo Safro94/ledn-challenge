@@ -8,7 +8,6 @@ import {
   UpArrow,
 } from './Dropdown.styles'
 import { useClickOutside } from '@mantine/hooks'
-import { DROPDOWN_CONTAINER_TEST_ID } from 'components/languageDropdown/__tests__/LanguageDropdown.test'
 
 interface Item<T> {
   id: T
@@ -26,7 +25,7 @@ export const Dropdown = <T,>({ buttonLabel, items, onClick }: Props<T>) => {
   const menuRef = useClickOutside(() => setOpen(false))
 
   return (
-    <DropdownContainer ref={menuRef} data-testid={DROPDOWN_CONTAINER_TEST_ID}>
+    <DropdownContainer ref={menuRef}>
       <DropdownToggleButton
         id='dropdown-button'
         type='button'
