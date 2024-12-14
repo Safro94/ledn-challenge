@@ -14,9 +14,15 @@ type CardProps = FC<
   Content: FC<PropsWithChildren>
 }
 
+export const CARD_TEST_ID = 'card'
+
 const Card: CardProps = ({ children, onClick, className }) => {
   return (
-    <CardContainer onClick={onClick} className={className}>
+    <CardContainer
+      onClick={onClick}
+      className={className}
+      data-testid={CARD_TEST_ID}
+    >
       {children}
     </CardContainer>
   )

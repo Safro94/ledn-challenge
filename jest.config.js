@@ -2,21 +2,24 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
-  moduleFileExtensions: ['ts', 'tsx'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
+  modulePaths: ['<rootDir>/src/'],
   roots: ['<rootDir>/src'],
-  testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(tsx)$',
   coverageReporters: ['html'],
   coverageDirectory: 'report',
   collectCoverageFrom: [
     '**/*.{ts, tsx}',
     '!**/*.{ts, tsx}.styles.ts',
     '!**/assets/**',
+    '!**/routes/**',
+    '!**/theme/**',
     '!**/node_modules/**',
     '!**/__tests__/**',
   ],
   transform: {
     '^.+\\.tsx$': 'ts-jest',
   },
+  setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
   globals: {
     'ts-jest': {
       isolatedModules: true,
@@ -24,5 +27,6 @@ module.exports = {
   },
   moduleNameMapper: {
     'src/(.*)': '<rootDir>/src/$1',
+    '^axios$': 'axios/dist/node/axios.cjs',
   },
 }

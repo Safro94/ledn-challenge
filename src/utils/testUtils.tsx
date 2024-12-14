@@ -1,10 +1,15 @@
 import { render, RenderOptions } from '@testing-library/react'
+import { queryClient, QueryClientProvider } from 'client'
 import { FC, PropsWithChildren, ReactElement } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { theme } from 'theme'
 
 const AllTheProviders: FC<PropsWithChildren> = ({ children }) => {
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    </QueryClientProvider>
+  )
 }
 
 const customRender = (

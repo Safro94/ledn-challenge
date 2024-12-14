@@ -29,7 +29,7 @@ export const SideNav = () => {
 
       <SideNavList>
         {links.map((link) => (
-          <li key={link.label}>
+          <li key={link.to}>
             <SideNavListOption to={link.to}>
               {link.icon} {link.label}
             </SideNavListOption>

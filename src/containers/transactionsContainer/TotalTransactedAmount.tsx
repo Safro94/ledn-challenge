@@ -1,4 +1,3 @@
-import { Card } from 'components/card'
 import { ExchangeRateType } from 'containers/exchangeRateContainer'
 import { FC, Fragment } from 'react'
 import { useTranslation } from 'react-i18next'
