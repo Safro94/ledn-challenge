@@ -52,8 +52,7 @@ export const PlanetsContainerSearchInput = styled.input`
 
 export const PlanetsContainerCard = styled(CardContainer)`
   cursor: pointer;
-
-  cursor: pointer;
+  color: ${({ theme }) => theme.palette.primary.main};
 
   &:hover {
     background-color: ${({ theme }) => theme.palette.primary.main};

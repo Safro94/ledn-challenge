@@ -1,5 +1,6 @@
 import { API_PREFIX, fetcher } from 'utils'
 import { Transaction, User } from 'server'
+import { API_ENDPOINTS } from 'utils/constants'
 
 export interface UsersResponse {
   users: User[]
@@ -12,7 +13,7 @@ export interface TransactionsResponse {
 const getUsers = async (id: string) => {
   const response = await fetcher<UsersResponse>({
     method: 'GET',
-    url: `${API_PREFIX}/users/planet/${id}`,
+    url: `${API_PREFIX}/${API_ENDPOINTS.usersByPlanet}/${id}`,
   })
 
   return response.data
@@ -21,7 +22,9 @@ const getUsers = async (id: string) => {
 const getTransactionsByUsers = async (ids: string[]) => {
   const response = await fetcher<TransactionsResponse>({
     method: 'GET',
-    url: `${API_PREFIX}/transactions/users/${JSON.stringify(ids)}`,
+    url: `${API_PREFIX}/${API_ENDPOINTS.transactionsByUsers}/${JSON.stringify(
+      ids
+    )}`,
   })
 
   return response.data

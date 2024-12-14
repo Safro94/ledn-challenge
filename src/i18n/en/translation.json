@@ -1,5 +1,16 @@
 {
   "sideNav": {
     "summary": "Summary"
+  },
+  "exchangeRate": {
+    "title": "Exchange rate"
+  },
+  "detail": {
+    "listOfTransactions": "List of transactions",
+    "totalAmountTransacted": "Total amount transacted",
+    "blockInProgress": "Block in progress",
+    "noTransactionsFound": "No transactions found",
+    "selectCurrency": "Select currency",
+    "total": "Total"
   }
 }

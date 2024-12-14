@@ -3,13 +3,19 @@ import { useMutation } from 'hooks/useMutation'
 import { API_PREFIX, fetcher } from 'utils'
 import { transactionsKeys } from './TransactionsContainer.keys'
 import { Transaction } from 'server'
+import { API_ENDPOINTS } from 'utils/constants'
 
 const blockTransactions = async (transactions: Transaction[]) => {
   return await fetcher<Transaction[]>({
     method: 'PUT',
-    url: `${API_PREFIX}/${transactionsKeys.all}/update-batch`,
+    url: `${API_PREFIX}/${API_ENDPOINTS.updateBatch}`,
     data: {
-      transactions: JSON.stringify(transactions),
+      transactions: JSON.stringify(
+        transactions.map((transaction) => ({
+          ...transaction,
+          status: 'blocked',
+        }))
+      ),
     },
   })
 }

@@ -2,7 +2,11 @@ import styled from 'styled-components'
 
 export const LayoutContainer = styled.div`
   display: grid;
-  grid-template-columns: 5rem 1fr;
+  grid-template-columns: 3rem 1fr;
+
+  @media (${({ theme }) => theme.breakpoints.mobile}) {
+    grid-template-columns: 5rem 1fr;
+  }
 `
 
 export const LayoutContentContainer = styled.div`

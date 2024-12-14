@@ -3,8 +3,10 @@ import { Skeleton } from 'components/skeleton'
 import {
   TransactionsContainerCardContent,
   TransactionsContainerFilterContainer,
+  TransactionsContainerNotFound,
   TransactionsContainerSkeleton,
   TransactionsContainerTitleContainer,
+  TransactionsContainerWrapper,
 } from './TransactionsContainer.styles'
 import { Card } from 'components/card'
 import { Transaction } from 'components/transaction'
@@ -13,10 +15,31 @@ import { ExchangeRateType } from 'containers/exchangeRateContainer'
 import { useMemo, useState } from 'react'
 import { Button, ButtonTypes } from 'components/button'
 import { useBlockTransactionsMutation } from './useBlockTransactionsMutation'
+import { useTranslation } from 'react-i18next'
+import { TotalTransactedAmount } from './TotalTransactedAmount'
+import { useUsers } from './useUsers'
 
 export const TransactionsContainer = () => {
-  const { data, isLoading, isFetched } = useTransactions()
+  const { t } = useTranslation()
   const { mutate: blockTransactions } = useBlockTransactionsMutation()
+  const {
+    data: usersData,
+    isLoading: isLoadingUsers,
+    isFetched: isUsersFetched,
+  } = useUsers()
+
+  const userIds = useMemo(
+    () => usersData?.users.map((user) => user.id) || [],
+    [usersData]
+  )
+
+  const {
+    data,
+    isLoading: isLoadingTransactions,
+    isFetched: isTransactionsFetched,
+    isPending: isPendingTransactions,
+    fetchStatus,
+  } = useTransactions(userIds)
 
   const [selectedCurrency, setSelectedCurrency] = useState<
     ExchangeRateType | undefined
@@ -34,11 +57,18 @@ export const TransactionsContainer = () => {
     })
   }, [data?.transactions, selectedCurrency])
 
+  const isLoading = isLoadingTransactions || isLoadingUsers
+
   return (
-    <>
+    <TransactionsContainerWrapper>
+      <TotalTransactedAmount
+        transactions={data?.transactions || []}
+        isLoading={isLoading}
+      />
+
       <Card>
         <TransactionsContainerTitleContainer>
-          <h4>List of transactions</h4>
+          <h4>{t('detail.listOfTransactions')}</h4>
 
           <TransactionsContainerFilterContainer>
             <Button
@@ -53,12 +83,12 @@ export const TransactionsContainer = () => {
                 )
               }}
             >
-              Block in progress
+              {t('detail.blockInProgress')}
             </Button>
 
             <Dropdown<ExchangeRateType | undefined>
               onClick={(item) => handleCurrencyChange(item)}
-              buttonLabel={selectedCurrency ?? 'Select currency'}
+              buttonLabel={selectedCurrency ?? t('detail.selectCurrency')}
               items={[
                 { id: undefined, text: 'ALL' },
                 ...Object.values(ExchangeRateType).map((value) => ({
@@ -78,16 +108,22 @@ export const TransactionsContainer = () => {
           ))}
 
         <TransactionsContainerCardContent>
-          {isFetched && !filteredTransactions?.length && (
-            <h2>No transactions found</h2>
-          )}
+          {(isTransactionsFetched && !filteredTransactions?.length) ||
+            (isUsersFetched &&
+              isPendingTransactions &&
+              fetchStatus === 'idle' && (
+                <TransactionsContainerNotFound>
+                  <h3>{t('detail.noTransactionsFound')}</h3>
+                </TransactionsContainerNotFound>
+              ))}
 
-          {!isLoading &&
-            filteredTransactions?.map((transaction) => (
+          {isTransactionsFetched &&
+            !!filteredTransactions?.length &&
+            filteredTransactions.map((transaction) => (
               <Transaction key={transaction.id} {...transaction} />
             ))}
         </TransactionsContainerCardContent>
       </Card>
-    </>
+    </TransactionsContainerWrapper>
   )
 }

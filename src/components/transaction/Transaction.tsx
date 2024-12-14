@@ -7,10 +7,9 @@ import {
   TransactionStatus,
   TransactionStatusType,
 } from './Transaction.styles'
-import { useQueryClient } from 'client'
-import { exchangeRateKeys } from 'containers/exchangeRateContainer/ExchangeRateContainer.keys'
 import { ExchangeRateType } from 'containers'
 import { useExchangeRateStore } from 'containers/exchangeRateContainer/exchangeRateStore'
+import { convertToGCS, convertToICS } from 'utils/converter'
 
 export const Transaction: FC<TransactionType> = ({
   amount,
@@ -28,14 +27,14 @@ export const Transaction: FC<TransactionType> = ({
         return (
           <>
             <TransactionCurrency>{ExchangeRateType.GCS}</TransactionCurrency>
-            <span>{(amount / exchangeRate).toFixed(2)}</span>
+            <span>{convertToGCS(amount, exchangeRate)}</span>
           </>
         )
       case ExchangeRateType.GCS:
         return (
           <>
             <TransactionCurrency>{ExchangeRateType.ICS}</TransactionCurrency>
-            <span>{(amount * exchangeRate).toFixed(2)}</span>
+            <span>{convertToICS(amount, exchangeRate)}</span>
           </>
         )
 

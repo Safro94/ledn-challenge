@@ -7,7 +7,6 @@ export const CardContainer = styled.div`
   border: 1px solid ${({ theme }) => theme.palette.primary.main};
   border-radius: ${({ theme }) => theme.radius.medium};
   padding: 1rem;
-  color: ${({ theme }) => theme.palette.primary.main};
   transition: background-color 0.3s ease-in-out;
 `
 

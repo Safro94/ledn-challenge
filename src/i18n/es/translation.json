@@ -1,5 +1,16 @@
 {
   "sideNav": {
     "summary": "Resumen"
+  },
+  "exchangeRate": {
+    "title": "Tipo de cambio"
+  },
+  "detail": {
+    "listOfTransactions": "Lista de transacciones",
+    "totalAmountTransacted": "Suma total de transacciones",
+    "blockInProgress": "Bloquear en progreso",
+    "noTransactionsFound": "No se encontraron transacciones",
+    "selectCurrency": "Seleccionar moneda",
+    "total": "Total"
   }
 }

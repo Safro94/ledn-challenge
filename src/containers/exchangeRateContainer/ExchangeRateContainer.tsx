@@ -2,6 +2,7 @@ import { Card } from 'components/card'
 import { useExchangeRate } from './useExchangeRate'
 import { ExchangeRateCard } from './ExchangeRateContainer.styles'
 import { Skeleton } from 'components/skeleton'
+import { useTranslation } from 'react-i18next'
 
 export enum ExchangeRateType {
   ICS = 'ICS',
@@ -9,6 +10,7 @@ export enum ExchangeRateType {
 }
 
 export const ExchangeRateContainer = () => {
+  const { t } = useTranslation()
   const { data, isLoading } = useExchangeRate()
 
   return (
@@ -17,7 +19,7 @@ export const ExchangeRateContainer = () => {
 
       {!isLoading && (
         <>
-          <Card.Title>Exchange rate</Card.Title>
+          <Card.Title>{t('exchangeRate.title')}</Card.Title>
           <Card.Subtitle>
             1 {ExchangeRateType.ICS} = {data?.rate} {ExchangeRateType.GCS}
           </Card.Subtitle>

@@ -35,6 +35,7 @@ export const DropdownToggleButton = styled.button`
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  height: 100%;
 
   &:hover {
     background-color: ${({ theme }) => theme.palette.primary.main};

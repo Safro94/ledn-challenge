@@ -9,6 +9,7 @@ import {
 } from './SideNav.styles'
 import { useTranslation } from 'react-i18next'
 
+// This component could also become a hamburger menu in mobile
 export const SideNav = () => {
   const { t } = useTranslation()
 
