@@ -2,6 +2,7 @@ import { Card } from 'components/card'
 import {
   PlanetsContainerCard,
   PlanetsContainerCardContent,
+  PlanetsContainerEmptyState,
   PlanetsContainerPlanetInfo,
   PlanetsContainerSearchContainer,
   PlanetsContainerSearchInput,
@@ -14,6 +15,7 @@ import { useDebouncedValue } from '@mantine/hooks'
 import { Skeleton } from 'components/skeleton'
 import { useNavigate } from 'react-router-dom'
 import { Routes } from 'routes/routes.types'
+import { useTranslation } from 'react-i18next'
 
 const PlanetInfo = ({
   title,
@@ -34,8 +36,9 @@ export const PlanetsContainer = () => {
   const [searchValue, setSearchValue] = useState('')
 
   const navigate = useNavigate()
-  const { data, isLoading } = usePlanets()
+  const { data, isLoading, isFetched } = usePlanets()
   const [debouncedValue] = useDebouncedValue(searchValue, 200)
+  const { t } = useTranslation()
 
   const filteredPlanetsByName = useMemo(
     () =>
@@ -79,8 +82,13 @@ export const PlanetsContainer = () => {
             </Card>
           ))}
 
-        {!isLoading &&
-          filteredPlanetsByName?.map((planet) => (
+        {isFetched && !filteredPlanetsByName?.length && (
+          <PlanetsContainerEmptyState message={t('summary.noResultsFound')} />
+        )}
+
+        {isFetched &&
+          !!filteredPlanetsByName?.length &&
+          filteredPlanetsByName.map((planet) => (
             <PlanetsContainerCard
               key={planet.id}
               onClick={() => navigate(`/${Routes.DETAIL}/${planet.id}`)}

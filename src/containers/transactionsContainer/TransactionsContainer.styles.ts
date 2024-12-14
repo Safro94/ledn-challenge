@@ -57,10 +57,3 @@ export const TransactionsContainerTotaContainer = styled.div`
 export const TotalTransactedAmountCard = styled(CardContainer)`
   gap: 0.5rem;
 `
-
-export const TransactionsContainerNotFound = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4rem 0;
-`

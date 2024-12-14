@@ -2,6 +2,9 @@
   "sideNav": {
     "summary": "Summary"
   },
+  "summary": {
+    "noResultsFound": "No results found, please change your search"
+  },
   "exchangeRate": {
     "title": "Exchange rate"
   },

@@ -1,4 +1,5 @@
 import { CardContainer } from 'components/card/Card.styles'
+import { EmptyState } from 'components/emptyState'
 import styled from 'styled-components'
 
 export const PlanetsContainerWrapper = styled.div`
@@ -58,4 +59,8 @@ export const PlanetsContainerCard = styled(CardContainer)`
     background-color: ${({ theme }) => theme.palette.primary.main};
     color: ${({ theme }) => theme.palette.primary.text};
   }
+`
+
+export const PlanetsContainerEmptyState = styled(EmptyState)`
+  grid-column: 1 / -1;
 `

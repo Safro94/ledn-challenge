@@ -2,6 +2,9 @@
   "sideNav": {
     "summary": "Resumen"
   },
+  "summary": {
+    "noResultsFound": "No se encontraron resultados, por favor cambie su búsqueda"
+  },
   "exchangeRate": {
     "title": "Tipo de cambio"
   },

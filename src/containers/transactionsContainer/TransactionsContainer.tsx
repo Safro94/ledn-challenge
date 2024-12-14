@@ -3,7 +3,6 @@ import { Skeleton } from 'components/skeleton'
 import {
   TransactionsContainerCardContent,
   TransactionsContainerFilterContainer,
-  TransactionsContainerNotFound,
   TransactionsContainerSkeleton,
   TransactionsContainerTitleContainer,
   TransactionsContainerWrapper,
@@ -18,6 +17,7 @@ import { useBlockTransactionsMutation } from './useBlockTransactionsMutation'
 import { useTranslation } from 'react-i18next'
 import { TotalTransactedAmount } from './TotalTransactedAmount'
 import { useUsers } from './useUsers'
+import { EmptyState } from 'components/emptyState'
 
 export const TransactionsContainer = () => {
   const { t } = useTranslation()
@@ -112,9 +112,7 @@ export const TransactionsContainer = () => {
             (isUsersFetched &&
               isPendingTransactions &&
               fetchStatus === 'idle' && (
-                <TransactionsContainerNotFound>
-                  <h3>{t('detail.noTransactionsFound')}</h3>
-                </TransactionsContainerNotFound>
+                <EmptyState message={t('detail.noTransactionsFound')} />
               ))}
 
           {isTransactionsFetched &&
