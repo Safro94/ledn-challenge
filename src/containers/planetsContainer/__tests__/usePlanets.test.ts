@@ -12,7 +12,7 @@ describe('usePlanets', () => {
     await waitFor(() => expect(result.current.isLoading).toBe(true))
 
     await waitFor(() =>
-      expect(result.current.data).toBe({
+      expect(result.current.data).toEqual({
         planets,
       })
     )
