@@ -89,3 +89,15 @@ npm run coverage
 if you want to check the code coverage.
 
 ## Screenshots
+
+<img width="1728" alt="Captura de pantalla 2024-12-14 a la(s) 19 58 58" src="https://github.com/user-attachments/assets/83dac022-6c0f-4080-b97b-47de0af795f3" />
+
+<img width="1728" alt="Captura de pantalla 2024-12-14 a la(s) 20 01 24" src="https://github.com/user-attachments/assets/1eecf436-22f5-4c70-aafd-dd328ef8720d" />
+
+<img width="1728" alt="Captura de pantalla 2024-12-14 a la(s) 20 01 12" src="https://github.com/user-attachments/assets/af01bbd8-fc3b-4691-93ae-b5114c5e87bb" />
+
+<img width="1727" alt="Captura de pantalla 2024-12-14 a la(s) 19 59 18" src="https://github.com/user-attachments/assets/59c3261c-1d37-455c-9517-0ffd85d19f9a" />
+
+<img width="1728" alt="Captura de pantalla 2024-12-14 a la(s) 19 59 09" src="https://github.com/user-attachments/assets/abbaf226-3d4c-415b-bd1e-9f6f80cc407d" />
+
+
