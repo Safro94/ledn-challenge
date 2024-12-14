@@ -11,36 +11,36 @@ export const TransactionsContainerWrapper = styled.div`
   }
 `
 
-export const TransactionsContainerCardContent = styled.div`
+export const TransactionsCardContent = styled.div`
   max-height: 25rem;
   overflow-y: auto;
   display: grid;
   gap: 1rem;
 `
-export const TransactionsContainerSkeleton = styled.div`
+export const TransactionsCardSkeletonContainer = styled.div`
   border: 1px solid ${({ theme }) => theme.palette.primary.main};
 `
 
-export const TransactionsContainerTitleContainer = styled.div`
+export const TransactionsCardTitleContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
 `
 
-export const TransactionsContainerFilterContainer = styled.div`
+export const TransactionsCardFilterContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
 `
 
-export const TransactionsContainerTotalAmount = styled.div`
+export const TotalTransactedAmountContainer = styled.div`
   font-size: 1.5rem;
   font-weight: bold;
   display: flex;
   gap: 0.5rem;
 `
 
-export const TransactionsContainerTotalAmountCurrency = styled.div`
+export const TotalTransactedAmountCurrency = styled.div`
   font-size: 1.25rem;
   font-weight: unset;
   opacity: 0.65;

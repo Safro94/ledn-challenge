@@ -4,9 +4,9 @@ import { useTranslation } from 'react-i18next'
 import { Transaction } from 'server'
 import {
   TotalTransactedAmountCard,
+  TotalTransactedAmountContainer,
+  TotalTransactedAmountCurrency,
   TransactionsContainerTotaContainer,
-  TransactionsContainerTotalAmount,
-  TransactionsContainerTotalAmountCurrency,
 } from './TransactionsContainer.styles'
 import { useExchangeRateStore } from 'containers/exchangeRateContainer/exchangeRateStore'
 import { convertToGCS, convertToICS } from 'utils/converter'
@@ -56,9 +56,9 @@ export const TotalTransactedAmount: FC<Props> = ({
           <>
             <span>{convertToGCS(amount, exchangeRate)}</span>
 
-            <TransactionsContainerTotalAmountCurrency>
+            <TotalTransactedAmountCurrency>
               {ExchangeRateType.GCS}
-            </TransactionsContainerTotalAmountCurrency>
+            </TotalTransactedAmountCurrency>
           </>
         )
       case ExchangeRateType.GCS:
@@ -66,9 +66,9 @@ export const TotalTransactedAmount: FC<Props> = ({
           <>
             <span>{convertToICS(amount, exchangeRate)}</span>
 
-            <TransactionsContainerTotalAmountCurrency>
+            <TotalTransactedAmountCurrency>
               {ExchangeRateType.ICS}
-            </TransactionsContainerTotalAmountCurrency>
+            </TotalTransactedAmountCurrency>
           </>
         )
 
@@ -100,13 +100,13 @@ export const TotalTransactedAmount: FC<Props> = ({
                 {t('detail.total')} {currency}
               </h6>
 
-              <TransactionsContainerTotalAmount>
+              <TotalTransactedAmountContainer>
                 {amount.toFixed(2)}
-                <TransactionsContainerTotalAmountCurrency>
+                <TotalTransactedAmountCurrency>
                   {currency}
-                </TransactionsContainerTotalAmountCurrency>
+                </TotalTransactedAmountCurrency>
                 ≈{getConvertedAmount(amount, currency as ExchangeRateType)}
-              </TransactionsContainerTotalAmount>
+              </TotalTransactedAmountContainer>
             </Fragment>
           )
         })}
@@ -116,21 +116,21 @@ export const TotalTransactedAmount: FC<Props> = ({
         <h2>{t('detail.total')}</h2>
 
         <TransactionsContainerTotaContainer>
-          <TransactionsContainerTotalAmount>
-            {totalInICS.toFixed(2)}
+          {[
+            { amount: totalInGCS, currency: ExchangeRateType.GCS },
+            {
+              amount: totalInICS,
+              currency: ExchangeRateType.ICS,
+            },
+          ].map(({ amount, currency }) => (
+            <TotalTransactedAmountContainer key={`${amount}-${currency}`}>
+              {amount.toFixed(2)}
 
-            <TransactionsContainerTotalAmountCurrency>
-              {ExchangeRateType.ICS}
-            </TransactionsContainerTotalAmountCurrency>
-          </TransactionsContainerTotalAmount>
-          =
-          <TransactionsContainerTotalAmount>
-            {totalInGCS.toFixed(2)}
-
-            <TransactionsContainerTotalAmountCurrency>
-              {ExchangeRateType.GCS}
-            </TransactionsContainerTotalAmountCurrency>
-          </TransactionsContainerTotalAmount>
+              <TotalTransactedAmountCurrency>
+                {currency}
+              </TotalTransactedAmountCurrency>
+            </TotalTransactedAmountContainer>
+          ))}
         </TransactionsContainerTotaContainer>
       </>
     </TotalTransactedAmountCard>
