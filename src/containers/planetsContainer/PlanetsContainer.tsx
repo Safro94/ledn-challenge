@@ -89,6 +89,7 @@ export const PlanetsContainer = () => {
         {isFetched &&
           !!filteredPlanetsByName?.length &&
           filteredPlanetsByName.map((planet) => (
+            // I'm showing the planet information here so I won't add it to the details page as well
             <PlanetsContainerCard
               key={planet.id}
               onClick={() => navigate(`/${Routes.DETAIL}/${planet.id}`)}

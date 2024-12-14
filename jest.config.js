@@ -10,7 +10,7 @@ module.exports = {
   collectCoverageFrom: [
     '**/*.{ts, tsx}',
     '!**/*.{ts, tsx}.styles.ts',
-    '!**/assets/**',
+    '!**/client/**',
     '!**/routes/**',
     '!**/node_modules/**',
     '!**/__tests__/**',
