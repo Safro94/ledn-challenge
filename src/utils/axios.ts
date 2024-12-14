@@ -5,7 +5,7 @@ const opts: AxiosRequestConfig = {
 }
 
 const interceptorError = (error: AxiosError) => {
-  console.log(error.response) // log the response, ideally you would log this using Sentry or a similar tool
+  console.log(error) // log the response, ideally you would log this using Sentry or a similar tool
   return Promise.reject(error.response)
 }
 

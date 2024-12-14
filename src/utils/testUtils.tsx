@@ -4,7 +4,7 @@ import { FC, PropsWithChildren, ReactElement } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { theme } from 'theme'
 
-const AllTheProviders: FC<PropsWithChildren> = ({ children }) => {
+export const AllTheProviders: FC<PropsWithChildren> = ({ children }) => {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={theme}>{children}</ThemeProvider>
