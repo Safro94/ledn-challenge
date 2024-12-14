@@ -14,6 +14,7 @@
     "blockInProgress": "Bloquear en progreso",
     "noTransactionsFound": "No se encontraron transacciones",
     "selectCurrency": "Seleccionar moneda",
-    "total": "Total"
+    "total": "Total",
+    "backToSummary": "Volver al resumen"
   }
 }

@@ -87,3 +87,5 @@ npm run coverage
 ```
 
 if you want to check the code coverage.
+
+## Screenshots

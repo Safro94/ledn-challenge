@@ -14,6 +14,7 @@
     "blockInProgress": "Block in progress",
     "noTransactionsFound": "No transactions found",
     "selectCurrency": "Select currency",
-    "total": "Total"
+    "total": "Total",
+    "backToSummary": "Back to summary"
   }
 }
