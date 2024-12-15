@@ -24,5 +24,10 @@
     "selectCurrency": "Seleccionar moneda",
     "total": "Total",
     "backToSummary": "Volver al resumen"
+  },
+  "error": {
+    "title": "Algo salió mal...",
+    "subtitle": "Se produjo un error al intentar cargar esta página.",
+    "goBack": "Volver a la página de inicio"
   }
 }

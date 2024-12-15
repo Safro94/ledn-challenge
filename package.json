@@ -23,9 +23,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "REACT_APP_API_URL=http://localhost:3000 jest",
+    "test": "REACT_APP_API_URL=http://localhost:3000 jest --silent",
     "test:watch": "npm test --watchAll",
-    "test:coverage": "npm test --coverage",
+    "test:coverage": "npm run test a -- --coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
