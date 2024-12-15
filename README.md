@@ -110,5 +110,10 @@ if you want to check the code coverage.
 
 <img width="820" alt="Captura de pantalla 2024-12-14 a la(s) 20 22 26" src="https://github.com/user-attachments/assets/af987706-75d2-492b-b023-acf2d8abaaa0" />
 
+## Flexible requirements
+I decided to implement:
 
-
+- Implement a solution capable of turning all transactions with a status of inProgress for a given planet to blocked using a planet ID.(I couldn't fully test it without modifying the mock data, which you said I shouldn't do but the logic is there. I could've copy the mock, modified it and then paste the previous data as well, but I assume you mostly wanna test the logic behind it).
+- Create the UI from scratch without using any UI component libraries.
+- Add multiple languages to the application.
+- Add automated tests
