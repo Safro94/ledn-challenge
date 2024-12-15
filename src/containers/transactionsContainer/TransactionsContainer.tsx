@@ -4,6 +4,7 @@ import { useMemo } from 'react'
 import { TotalTransactedAmount } from './TotalTransactedAmount'
 import { useUsers } from './useUsers'
 import { TransactionsCard } from './TransactionsCard'
+import { useBlockTransactionsMutation } from './useBlockTransactionsMutation'
 
 export const TransactionsContainer = () => {
   const {
@@ -24,6 +25,7 @@ export const TransactionsContainer = () => {
     isPending: isPendingTransactions,
     fetchStatus,
   } = useTransactions(userIds)
+  const { mutate: blockTransactions } = useBlockTransactionsMutation(userIds)
 
   const isLoading = isLoadingTransactions || isLoadingUsers
 
@@ -35,6 +37,9 @@ export const TransactionsContainer = () => {
       />
 
       <TransactionsCard
+        onBlockTransactions={(transactions) => {
+          blockTransactions(transactions)
+        }}
         isLoading={isLoading}
         isFetched={isTransactionsFetched}
         transactions={data?.transactions || []}

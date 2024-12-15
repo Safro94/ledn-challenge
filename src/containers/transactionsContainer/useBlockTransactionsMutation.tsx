@@ -20,7 +20,7 @@ const blockTransactions = async (transactions: Transaction[]) => {
   })
 }
 
-export const useBlockTransactionsMutation = () => {
+export const useBlockTransactionsMutation = (userIds: string[]) => {
   const queryClient = useQueryClient()
 
   return useMutation({
@@ -29,7 +29,7 @@ export const useBlockTransactionsMutation = () => {
     onSuccess: () => {
       // we could also show a toaster here but I don't want to implement a toast from scratch tbh
       queryClient.invalidateQueries({
-        queryKey: transactionsKeys.all,
+        queryKey: transactionsKeys.byUsers(userIds),
       })
     },
   })

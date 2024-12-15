@@ -49,7 +49,12 @@ jest.mock('../useBlockTransactionsMutation', () => ({
 describe('TransactionsCard', () => {
   it('should show the skeleton when isLoading is true', async () => {
     render(
-      <TransactionsCard isLoading={true} isFetched={false} transactions={[]} />
+      <TransactionsCard
+        onBlockTransactions={mockBlockTransactionsMutation}
+        isLoading={true}
+        isFetched={false}
+        transactions={[]}
+      />
     )
 
     expect(screen.getAllByTestId(SKELETON_TEST_ID)).toHaveLength(6)
@@ -58,6 +63,7 @@ describe('TransactionsCard', () => {
   it('should show the empty state when isFetched is false', async () => {
     render(
       <TransactionsCard
+        onBlockTransactions={mockBlockTransactionsMutation}
         isLoading={false}
         isFetched={false}
         transactions={[]}
@@ -72,6 +78,7 @@ describe('TransactionsCard', () => {
   it('should show the transactions when isFetched is true', async () => {
     render(
       <TransactionsCard
+        onBlockTransactions={mockBlockTransactionsMutation}
         isFetched
         isLoading={false}
         transactions={MOCKED_TRANSACTIONS}
@@ -86,6 +93,7 @@ describe('TransactionsCard', () => {
   it('should filter the transactions by the selected currency', async () => {
     render(
       <TransactionsCard
+        onBlockTransactions={mockBlockTransactionsMutation}
         isFetched
         isLoading={false}
         transactions={MOCKED_TRANSACTIONS}
@@ -135,6 +143,7 @@ describe('TransactionsCard', () => {
   it('should call the blockTransactions mutation when the block button is clicked', async () => {
     render(
       <TransactionsCard
+        onBlockTransactions={mockBlockTransactionsMutation}
         isFetched
         isLoading={false}
         transactions={MOCKED_TRANSACTIONS}
