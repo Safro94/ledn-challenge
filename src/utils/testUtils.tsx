@@ -1,13 +1,16 @@
 import { render, RenderOptions } from '@testing-library/react'
 import { queryClient, QueryClientProvider } from 'client'
 import { FC, PropsWithChildren, ReactElement } from 'react'
+import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import { theme } from 'theme'
 
 export const AllTheProviders: FC<PropsWithChildren> = ({ children }) => {
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>{children}</BrowserRouter>
+      </ThemeProvider>
     </QueryClientProvider>
   )
 }
