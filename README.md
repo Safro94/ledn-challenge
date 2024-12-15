@@ -100,7 +100,7 @@ if you want to check the code coverage.
 
 <img width="1728" alt="Captura de pantalla 2024-12-14 a la(s) 20 20 34" src="https://github.com/user-attachments/assets/b6aa402b-941d-417a-a668-832714c4d1d6" />
 
-<img width="1728" alt="Captura de pantalla 2024-12-14 a la(s) 20 20 50" src="https://github.com/user-attachments/assets/6b256e1c-9fb4-468f-95f8-813013610b51" />
+<img width="1728" alt="Captura de pantalla 2024-12-14 a la(s) 22 16 03" src="https://github.com/user-attachments/assets/1aca6877-0afb-404e-9aed-7dc9ca8daa0d" />
 
 <img width="1001" alt="Captura de pantalla 2024-12-14 a la(s) 20 21 13" src="https://github.com/user-attachments/assets/efb1b523-57b0-4846-b128-c5d2109985c6" />
 
