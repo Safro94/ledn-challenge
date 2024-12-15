@@ -27,6 +27,7 @@ export const useBlockTransactionsMutation = () => {
     mutationKey: transactionsKeys.updateBatch(),
     mutationFn: blockTransactions,
     onSuccess: () => {
+      // we could also show a toaster here but I don't want to implement a toast from scratch tbh
       queryClient.invalidateQueries({
         queryKey: transactionsKeys.all,
       })
